@@ -1,5 +1,10 @@
-// Make Paperclips
-let m_p = setInterval(function() { document.getElementById('btnMakePaperclip').click() }, 1)
+// Make Paperclip Makers
+let m_p_m = setInterval(function() { 
+  // Maker Paperclips
+  setInterval(function() { 
+    document.getElementById('btnMakePaperclip').click() 
+  }, 1) 
+}, 30000)
 
 // Buy Wire
 let b_w = setInterval(function() { if(document.getElementById('wire').innerHTML === "0") document.getElementById('btnBuyWire').click()  }, 100)
