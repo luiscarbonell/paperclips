@@ -1,13 +1,79 @@
-// Make Paperclip Makers
-let m_p_m = setInterval(function() { 
-  // Maker Paperclips
-  setInterval(function() { 
-    document.getElementById('btnMakePaperclip').click() 
-  }, 1) 
-}, 30000)
+//==============================
+// Before AutoClippers =========
+//==============================
+window.funds += 100
 
-// Buy Wire
-let b_w = setInterval(function() { if(document.getElementById('wire').innerHTML === "0") document.getElementById('btnBuyWire').click()  }, 100)
+//==============================
+// Before Projects =============
+//==============================
 
-// Complete Project
-let c_p = setInterval(function() { let a = document.getElementById('projectListTop').querySelectorAll('button:not([disabled])'); if(a.length > 0) (a[0]).click(); }, 1000)
+let WirePurchaserI = setInterval(function() {
+  window.funds += parseFloat(document.querySelector("#wireCost").innerHTML.split(",").join(""));
+  window.buyWire()
+}, 100)
+
+let PriceRaiserI = setInterval(function() {
+  window.raisePrice()
+}, 100)
+
+let AutoClipperPurchaserI = setInterval(function() {
+  window.funds += parseFloat(document.querySelector("#clipperCost").innerHTML.split(",").join(""));
+  window.makeClipper()
+}, 100)
+
+let MarketingLevelIncreaserI = setInterval(function() {
+  window.funds += parseFloat(document.querySelector("#adCost").innerHTML.split(",").join(""));
+  window.buyAds()
+}, 100)
+
+//==============================
+// Projects ====================
+//==============================
+
+let MemoryIncreaserI = setInterval(function() {
+  window.addMem()
+}, 100)
+
+let ProcessorIncreaserI = setInterval(function() {
+  window.addProc()
+}, 100)
+
+//==============================
+// MegaClippers ================
+//==============================
+
+let MegaClipperPurchaserI = setInterval(function() {
+  window.funds += parseFloat(document.querySelector("#megaClipperCost").innerHTML.split(",").join(""));
+  window.makeMegaClipper()
+}, 100)
+
+//==============================
+// Hypnodrones =================
+//==============================
+
+let SolarFarmPurchaserI = setInterval(function() {
+  if(parseFloat(document.querySelector("#powerConsumptionRate").innerHTML.split(",").join("")) >
+     parseFloat(document.querySelector("#powerProductionRate").innerHTML.split(",").join(""))) {
+    window.makeFarm(100)
+  }
+}, 100)
+
+let DronePurchaserI = setInterval(function() {
+  if(window.availableMatter > 0 && parseFloat(document.querySelector("#powerConsumptionRate").innerHTML.split(",").join("")) <=
+     parseFloat(document.querySelector("#powerProductionRate").innerHTML.split(",").join(""))) {
+    window.makeHarvester(1000)
+    window.makeWireDrone(1000)
+  }
+}, 100)
+
+//==============================
+// Von Neumann Probes ==========
+//==============================
+
+window.yomi += 100000000000000000
+window.maxTrust += 100000000000000
+maxTrustDisplayElement.innerHTML = formatWithCommas(maxTrust)
+
+let ProbeLauncherI = setInterval(function() {
+  window.makeProbe()
+}, 100)
